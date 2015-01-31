@@ -44,6 +44,7 @@
     if (![[DBSession sharedSession] isLinked]) {
         if (![AppState sharedInstance].authenticated) {
             //First time User authenticated after not being authorized refresh images
+            [[DropboxManager sharedInstance]getAllMetadata];
             [[DropboxManager sharedInstance]getMetadataForImages];
         }
         NSLog(@"User not authenticated");

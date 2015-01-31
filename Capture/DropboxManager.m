@@ -158,7 +158,7 @@
     if (_receivedMetadataFromDropbox) {
         _receivedMetadataFromDropbox(NO, nil);
     }
-    [self handleErrors:error andSilent:NO];
+    [self handleErrors:error andSilent:YES];
     NSLog(@"Error loading metadata: %@", error);
     NSLog(@"Erro Code: %i",(int)error.code);
 }
