@@ -24,6 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupCallBacks];
     [self setupCollectionView];
     _filesCollectionArray=[[NSMutableArray alloc]init];
     [self.navigationItem setHidesBackButton:YES];
@@ -231,7 +232,15 @@
 -(void)setupCallBacks{
     __weak typeof(self) weakSelf = self;
     [[DropboxManager sharedInstance]receivedMetadataFromDropboxPictures:^(BOOL success, NSArray *metadataContentsArray) {
-        [self reloadTableWithArray:metadataContentsArray];
+        if (success) {
+            [self reloadTableWithArray:metadataContentsArray];
+        }
+        [self determineEmptyViewNeedsToBeHidden];
+    }];
+    [[DropboxManager sharedInstance]receivedMetadataFromDropbox:^(BOOL success, NSArray *metadataContentsArray) {
+        if (success) {
+            [self reloadTableWithArray:metadataContentsArray];
+        }
         [self determineEmptyViewNeedsToBeHidden];
     }];
     [[DropboxManager sharedInstance]loadedThumbnailImage:^(BOOL success, NSError *error) {

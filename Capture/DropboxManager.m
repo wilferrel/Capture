@@ -70,6 +70,10 @@
             //Parse Photo Contents
             if ([metadata.contents count]>0) {
                 [self loadPhotoContentesToArray:metadata.contents];
+            }else{
+                if (_receivedMetadataFromDropboxPictures) {
+                    _receivedMetadataFromDropboxPictures(NO,_photoMetadataContentsArray);
+                }
             }
         }
         else{
@@ -80,7 +84,9 @@
                 [self createFolderWithName:@"Photos"];
                 [self createFolderWithName:@"Audio"];
                 [self createFolderWithName:@"Notes"];
-                
+                if (_receivedMetadataFromDropbox) {
+                    _receivedMetadataFromDropbox(YES, metadata.contents);
+                }
             }else{
                 BOOL photosFolderExists=NO;
                 BOOL audioFolderExists=NO;
