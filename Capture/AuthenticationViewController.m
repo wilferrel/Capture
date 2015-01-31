@@ -91,6 +91,7 @@
     [[DropboxManager sharedInstance]receivedMetadataFromDropbox:^(BOOL success, NSArray *metadataContentsArray) {
         if (success) {
             if (_shownAsModal) {
+                self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                 [self dismissViewControllerAnimated:YES completion:^{
                     NSLog(@"Authenticated and received info from Dropbox");
                 }];

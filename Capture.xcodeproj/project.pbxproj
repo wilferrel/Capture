@@ -31,6 +31,7 @@
 		F526544C1A7CAFF200DF4FF4 /* PhotoEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F526544B1A7CAFF200DF4FF4 /* PhotoEditViewController.m */; };
 		F52654521A7CCA3800DF4FF4 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F526544F1A7CCA3800DF4FF4 /* SVProgressHUD.bundle */; };
 		F52654531A7CCA3800DF4FF4 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F52654511A7CCA3800DF4FF4 /* SVProgressHUD.m */; };
+		F52654671A7D5FFE00DF4FF4 /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = F52654661A7D5FFE00DF4FF4 /* AppState.m */; };
 		F58E396E1A79D02200FEB37B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F58E396D1A79D02200FEB37B /* main.m */; };
 		F58E39711A79D02200FEB37B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F58E39701A79D02200FEB37B /* AppDelegate.m */; };
 		F58E39771A79D02200FEB37B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F58E39751A79D02200FEB37B /* Main.storyboard */; };
@@ -106,6 +107,8 @@
 		F526544F1A7CCA3800DF4FF4 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		F52654501A7CCA3800DF4FF4 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		F52654511A7CCA3800DF4FF4 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		F52654651A7D5FFE00DF4FF4 /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
+		F52654661A7D5FFE00DF4FF4 /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
 		F58E39681A79D02200FEB37B /* Capture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58E396C1A79D02200FEB37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F58E396D1A79D02200FEB37B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 			children = (
 				F517C9801A7BFBC700A29762 /* CaptureSharing.h */,
 				F517C9811A7BFBC700A29762 /* CaptureSharing.m */,
+				F52654651A7D5FFE00DF4FF4 /* AppState.h */,
+				F52654661A7D5FFE00DF4FF4 /* AppState.m */,
 			);
 			name = "Other Classes";
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				F52654531A7CCA3800DF4FF4 /* SVProgressHUD.m in Sources */,
 				F517C9821A7BFBC700A29762 /* CaptureSharing.m in Sources */,
 				F517C94A1A7B39B200A29762 /* PhotosCollectionViewCell.m in Sources */,
+				F52654671A7D5FFE00DF4FF4 /* AppState.m in Sources */,
 				F58E399C1A79D0E700FEB37B /* DropboxManager.m in Sources */,
 				F517C93A1A79D48C00A29762 /* BaseViewController.m in Sources */,
 				F58E39711A79D02200FEB37B /* AppDelegate.m in Sources */,

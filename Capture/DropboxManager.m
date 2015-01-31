@@ -8,7 +8,7 @@
 
 #import "DropboxManager.h"
 #import "DropBoxImage.h"
-
+#import "AuthenticationViewController.h"
 #define IMAGE_DROPBOX_PATH  @"/Photos/"
 #define DROPBOX_MAIN_PATH  @"/"
 
@@ -56,6 +56,7 @@
     if (_uploadedFileToDropbox) {
         _uploadedFileToDropbox(NO,error);
     }
+    [self handleErrors:error andSilent:NO];
 }
 #pragma mark- Metadata Related
 -(void)getAllMetadata{
@@ -157,7 +158,9 @@
     if (_receivedMetadataFromDropbox) {
         _receivedMetadataFromDropbox(NO, nil);
     }
+    [self handleErrors:error andSilent:NO];
     NSLog(@"Error loading metadata: %@", error);
+    NSLog(@"Erro Code: %i",(int)error.code);
 }
 
 #pragma mark- Download Related
@@ -196,7 +199,10 @@
     if (_downloadedFileToDropbox) {
         _downloadedFileToDropbox(NO,error,nil);
     }
+    [self handleErrors:error andSilent:NO];
+
 }
+
 
 #pragma mark- NSFileManager related
 -(NSString*)getLocalPathForImages{
@@ -243,7 +249,8 @@
 }
 - (void)restClient:(DBRestClient*)client createFolderFailedWithError:(NSError*)error{
     NSLog(@"%@",error);
-    
+    [self handleErrors:error andSilent:YES];
+
 }
 - (void)restClient:(DBRestClient*)client loadedThumbnail:(NSString*)destPath metadata:(DBMetadata*)metadata{
     if (_loadedThumbnailImage) {
@@ -272,7 +279,8 @@
     return filePath;
 }
 - (void)restClient:(DBRestClient*)client loadThumbnailFailedWithError:(NSError*)error{
-    
+    [self handleErrors:error andSilent:YES];
+
 }
 #pragma mark- Delete Related
 -(void)deletePath:(NSString*)pathToDelete{
@@ -288,6 +296,41 @@
     NSLog(@"Failed to delete path.");
     if (_deletedPath) {
         _deletedPath(NO,error);
+    }
+    [self handleErrors:error andSilent:YES];
+
+}
+#pragma mark- Error Handling
+-(void)handleErrors:(NSError*)receivedError andSilent:(BOOL)failSilently{
+    if((int)receivedError.code==401){
+        [[DBSession sharedSession] unlinkAll];
+        [self showLoginVC];
+    }else{
+        if (!failSilently) {
+            UIAlertView *errorAlert=[[UIAlertView alloc]initWithTitle:@"Ooops..." message:@"It looks like we are having some issue please try again later." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [errorAlert show];
+        }
+    }
+}
+#pragma mark- Show Un-Authorized
+-(void)showLoginVC{
+
+    UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AuthenticationViewController *authVC=[mainStoryboard instantiateViewControllerWithIdentifier:@"AuthenticationViewController"];
+    authVC.shownAsModal=YES;
+    UIViewController *currentVC=[self getTopViewcontroller];
+    currentVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [currentVC presentViewController:authVC animated:YES completion:nil];
+
+}
+-(UIViewController*)getTopViewcontroller{
+    UIViewController *tempTopVC=[UIApplication sharedApplication].delegate.window.rootViewController;
+    if ([tempTopVC isKindOfClass:[UINavigationController class]]) {
+        return[(UINavigationController *)tempTopVC topViewController];
+    }else if([tempTopVC isKindOfClass:[UITabBarController class]]){
+        return [(UITabBarController *)tempTopVC selectedViewController];
+    }else{
+        return [tempTopVC presentedViewController];
     }
 }
 #pragma mark- Blocks

@@ -9,7 +9,8 @@
 #import "BaseViewController.h"
 #import "UIView+Screenshot.h"
 #import "UIImage+ImageEffects.h"
-
+#import "AppState.h"
+#import "DropboxManager.h"
 
 @interface BaseViewController ()<FancyTabBarDelegate>
 //Fancy Toolbar
@@ -41,6 +42,10 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     if (![[DBSession sharedSession] isLinked]) {
+        if (![AppState sharedInstance].authenticated) {
+            //First time User authenticated after not being authorized refresh images
+            [[DropboxManager sharedInstance]getMetadataForImages];
+        }
         NSLog(@"User not authenticated");
         NSLog(@"Will attempt to re-authenticated");
         //User is not authenticated
@@ -48,6 +53,7 @@
     }else{
         //User authenticated.
         NSLog(@"User authenticated");
+        [AppState sharedInstance].authenticated=NO;
     }
 }
 -(void)logUserOut{
@@ -55,7 +61,7 @@
 }
 #pragma mark- Dropbox Session Delegate
 - (void)sessionDidReceiveAuthorizationFailure:(DBSession *)session userId:(NSString *)userId{
-    
+    NSLog(@"Auth Error from Dropbox");
 }
 - (UIStatusBarStyle) preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
