@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoFilterCollectionViewCell" id="gTV-IL-0wX" customClass="PhotoFilterCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="385" height="323"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="385" height="323"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elr-hf-igS">
+                        <rect key="frame" x="172" y="109" width="40" height="65"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="65" id="5BB-cL-e92"/>
+                            <constraint firstAttribute="width" constant="40" id="Aok-zC-zWe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GLOVE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GW-xc-UNu">
+                        <rect key="frame" x="0.0" y="183" width="385" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Fe1-0c-u3n"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="6GW-xc-UNu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5Em-QU-6f4"/>
+                <constraint firstItem="6GW-xc-UNu" firstAttribute="centerX" secondItem="elr-hf-igS" secondAttribute="centerX" id="GxW-Sm-zfG"/>
+                <constraint firstAttribute="centerX" secondItem="elr-hf-igS" secondAttribute="centerX" id="XAk-F7-Cc1"/>
+                <constraint firstItem="6GW-xc-UNu" firstAttribute="top" secondItem="elr-hf-igS" secondAttribute="bottom" constant="9" id="gHH-ee-suA"/>
+                <constraint firstAttribute="trailing" secondItem="6GW-xc-UNu" secondAttribute="trailing" id="jLk-dw-0Jb"/>
+                <constraint firstAttribute="centerY" secondItem="elr-hf-igS" secondAttribute="centerY" constant="20.25" id="oBA-FV-ioN"/>
+            </constraints>
+            <size key="customSize" width="385" height="323"/>
+            <connections>
+                <outlet property="nameOfFilterLbl" destination="6GW-xc-UNu" id="lPK-7i-wva"/>
+                <outlet property="oneLetterNameOfFilterLbl" destination="elr-hf-igS" id="NVd-Ig-tp2"/>
+            </connections>
+            <point key="canvasLocation" x="407.5" y="304.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
