@@ -24,4 +24,4 @@
 **[DropBox iOS SDK](https://www.dropbox.com/developers/core/start/ios "GPUImage")**<br>
 
 ## Special Thanks
-**@todoriliev** for providing graphics for this demo.<br> You can find more of his work among other passionate desingers in his site [SketchAppSources](http://www.sketchappsources.com/ "SketchAppSources").
+**[Todor Iliev](https://github.com/todoriliev "Todor")** for providing graphics for this demo.<br> You can find more of his work among other passionate desingers in his site [SketchAppSources](http://www.sketchappsources.com/ "SketchAppSources").
