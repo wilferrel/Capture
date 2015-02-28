@@ -287,12 +287,21 @@ static const CGFloat SVProgressHUDParallaxDepthPoints = 10;
         } else {
             CGSize stringSize;
             
-            if ([string respondsToSelector:@selector(sizeWithAttributes:)])
+            if ([string respondsToSelector:@selector(sizeWithAttributes:)]){
                 stringSize = [string sizeWithAttributes:@{NSFontAttributeName:[UIFont fontWithName:self.stringLabel.font.fontName size:self.stringLabel.font.pointSize]}];
-            else
-                stringSize = [string sizeWithFont:self.stringLabel.font constrainedToSize:CGSizeMake(200, 300)];
-            
-            stringRect = CGRectMake(0.0f, 0.0f, stringSize.width, stringSize.height);
+            }else{
+                NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                      self.stringLabel.font, NSFontAttributeName,
+                                                      nil];
+                
+                CGRect frame = [string boundingRectWithSize:CGSizeMake(200, 300)
+                                                  options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
+                                               attributes:attributesDictionary
+                                                  context:nil];
+                
+                stringSize = frame.size;
+            }
+        stringRect = CGRectMake(0.0f, 0.0f, stringSize.width, stringSize.height);
         }
         stringWidth = stringRect.size.width;
         stringHeight = ceil(stringRect.size.height);

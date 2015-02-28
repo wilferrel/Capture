@@ -41,6 +41,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     if (![[DBSession sharedSession] isLinked]) {
         if (![AppState sharedInstance].authenticated) {
             //First time User authenticated after not being authorized refresh images

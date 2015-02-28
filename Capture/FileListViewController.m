@@ -41,8 +41,7 @@
 -(void)setupCollectionView {
     UINib *cellNib = [UINib nibWithNibName:@"PhotosCollectionViewCell" bundle:nil];
     [self.filesCollectionView registerNib:cellNib forCellWithReuseIdentifier:@"PhotosCollectionViewCell"];
-    UICollectionViewFlowLayout *currentCVLayout=[[UICollectionViewFlowLayout alloc]init];
-    currentCVLayout = [[UICollectionViewFlowLayout alloc] init];
+    UICollectionViewFlowLayout *currentCVLayout = [[UICollectionViewFlowLayout alloc] init];
     [currentCVLayout setMinimumInteritemSpacing:0.0f];
     [currentCVLayout setMinimumLineSpacing:0.0f];
     [currentCVLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -163,7 +162,7 @@
     }else{
         //From Camera Roll
     }
-    PhotoFilterView *photoFilterV=[[PhotoFilterView alloc]init];
+    PhotoFilterView *photoFilterV=[[[NSBundle mainBundle] loadNibNamed:@"PhotoFilterView" owner:self options:nil] objectAtIndex:0];
     [photoFilterV showWithImage:selectedImage];
     [photoFilterV photoFilterViewHiddenWithSelectedImage:^(UIImage *selectImage) {
         [DropBoxImage saveImageToPhotoRoll:selectImage];

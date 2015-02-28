@@ -10,20 +10,30 @@
 #import "PhotoFilterCollectionViewCell.h"
 @implementation PhotoFilterView
 
-- (id)init {
-    if (self = [super init]) {
-        self= [[[NSBundle mainBundle] loadNibNamed:@"PhotoFilterView" owner:self options:nil] objectAtIndex:0];
 
-        self.isVisible=NO;
-        self.originalImage=nil;
-        _filterArray=[[NSMutableArray alloc]initWithArray:@[[NSNumber numberWithInt:FILTER_None],[NSNumber numberWithInt:FILTER_Greyscale],[NSNumber numberWithInt:FILTER_Sepia],[NSNumber numberWithInt:FILTER_Sketch],[NSNumber numberWithInt:FILTER_Pixellate],[NSNumber numberWithInt:FILTER_ColorInvert],[NSNumber numberWithInt:FILTER_Toon],[NSNumber numberWithInt:FILTER_PinchDistort]]];
-        self.parentV=[UIApplication sharedApplication].keyWindow;
-        self.frame=self.parentV.frame;
-        self.alpha=0;
-        [self setupCollectionView];
-        self.selectedFilter=FILTER_None;
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if(!self){
+        return nil;
     }
     return self;
+}
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    [self baseInit];
+
+}
+-(void)baseInit{
+    self.isVisible=NO;
+    self.originalImage=nil;
+    self.filterArray=[[NSMutableArray alloc]initWithArray:@[[NSNumber numberWithInt:FILTER_None],[NSNumber numberWithInt:FILTER_Greyscale],[NSNumber numberWithInt:FILTER_Sepia],[NSNumber numberWithInt:FILTER_Sketch],[NSNumber numberWithInt:FILTER_Pixellate],[NSNumber numberWithInt:FILTER_ColorInvert],[NSNumber numberWithInt:FILTER_Toon],[NSNumber numberWithInt:FILTER_PinchDistort]]];
+    self.parentV=[UIApplication sharedApplication].keyWindow;
+    self.frame=self.parentV.frame;
+    self.alpha=0;
+    [self setupCollectionView];
+    self.selectedFilter=FILTER_None;
+    
 }
 -(void)setupCollectionView {
     UINib *cellNib = [UINib nibWithNibName:@"PhotoFilterCollectionViewCell" bundle:nil];

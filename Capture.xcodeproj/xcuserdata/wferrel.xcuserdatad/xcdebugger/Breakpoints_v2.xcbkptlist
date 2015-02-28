@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Capture/BaseViewController.m"
-            timestampString = "444435552.710078"
+            timestampString = "446782166.821868"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "-sessionDidReceiveAuthorizationFailure:userId:"
             landmarkType = "5">
          </BreakpointContent>

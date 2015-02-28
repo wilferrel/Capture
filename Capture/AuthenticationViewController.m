@@ -37,6 +37,7 @@
     }
 }
 -(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     [self cancelTimer];
 }
 -(void)addAuthenticationObserver{
