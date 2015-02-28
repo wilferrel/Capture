@@ -123,7 +123,6 @@
         default:
             break;
     }
-    NSLog(@"Hello index %d tapped !", index);
 }
 -(void)fancyMenuTapped:(void(^)(FANCY_MENU_BUTTONS buttonPressed))fancyMenuTappedCallback{
     _fancyMenuTapped=fancyMenuTappedCallback;
