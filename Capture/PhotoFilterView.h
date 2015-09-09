@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "GPUImage.h"
-typedef NS_ENUM(NSUInteger, Photo_Filter) {
+typedef NS_ENUM(NSUInteger, Photo_Filter)
+{
     FILTER_None = 0,
     FILTER_Greyscale = 1,
     FILTER_Sepia = 2,
@@ -19,7 +20,7 @@ typedef NS_ENUM(NSUInteger, Photo_Filter) {
     FILTER_PinchDistort = 7
 };
 
-@interface PhotoFilterView : UIView<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface PhotoFilterView : UIView <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (assign, nonatomic) BOOL isVisible;
 @property (strong, nonatomic) IBOutlet UICollectionView *filterCollectionView;
 @property (strong, nonatomic) NSMutableArray *filterArray;
@@ -31,17 +32,16 @@ typedef NS_ENUM(NSUInteger, Photo_Filter) {
 @property (weak, nonatomic) IBOutlet UIImageView *previewImageView;
 @property (assign, nonatomic) Photo_Filter selectedFilter;
 
--(void)showWithImage:(UIImage*)imageForFilter;
--(void)hide;
+- (void)showWithImage:(UIImage *)imageForFilter;
+- (void)hide;
 - (IBAction)saveTouched:(id)sender;
 - (IBAction)cancelTouched:(id)sender;
 
-    
-//Blocks
-@property (nonatomic, copy) void(^photoFilterViewShown)();
--(void)photoFilterViewShown:(void(^)())callBackBlock;
-@property (nonatomic, copy) void(^photoFilterViewHidden)();
--(void)photoFilterViewHidden:(void(^)())callBackBlock;
-@property (nonatomic, copy) void(^photoFilterViewHiddenWithSelectedImage)(UIImage *selectImage);
--(void)photoFilterViewHiddenWithSelectedImage:(void(^)(UIImage *selectImage))callBackBlock;
+// Blocks
+@property (nonatomic, copy) void (^photoFilterViewShown)();
+- (void)photoFilterViewShown:(void (^)())callBackBlock;
+@property (nonatomic, copy) void (^photoFilterViewHidden)();
+- (void)photoFilterViewHidden:(void (^)())callBackBlock;
+@property (nonatomic, copy) void (^photoFilterViewHiddenWithSelectedImage)(UIImage *selectImage);
+- (void)photoFilterViewHiddenWithSelectedImage:(void (^)(UIImage *selectImage))callBackBlock;
 @end

@@ -10,12 +10,14 @@
 #import "GPUImage.h"
 #import "PhotoFilterView.h"
 
-typedef NS_ENUM(NSUInteger, DB_FileListMode) {
+typedef NS_ENUM(NSUInteger, DB_FileListMode)
+{
     DB_FileListMode_Photos = 0,
     DB_FileListMode_Text = 1,
 };
 
-@interface FileListViewController : BaseViewController<UICollectionViewDelegate,UICollectionViewDataSource,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface FileListViewController : BaseViewController <UICollectionViewDelegate, UICollectionViewDataSource, UIActionSheetDelegate,
+                                                        UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *filesCollectionView;
 @property (strong, nonatomic) NSMutableArray *filesCollectionArray;

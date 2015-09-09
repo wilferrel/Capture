@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 
 @interface AuthenticationViewController : UIViewController
-//User Actions
+// User Actions
 - (IBAction)dropBoxLoginTouched:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *loginDropboxButton;

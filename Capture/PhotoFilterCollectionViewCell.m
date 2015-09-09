@@ -10,9 +10,9 @@
 
 @implementation PhotoFilterCollectionViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     // Initialization code
-
 }
 
 @end

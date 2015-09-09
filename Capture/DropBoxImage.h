@@ -22,9 +22,9 @@
 @property (strong, nonatomic) NSString *revNum;
 
 - (void)squareImageFromImage:(UIImage *)image scaledToSize:(CGFloat)newSize;
-+(void)saveImageToDropbox:(UIImage*)imageToSave withImageName:(NSString*)nameOfImage;
-+(void)saveimageToDropbox:(NSString*)imagePath withName:(NSString*)name;
-+(void)saveImageToPhotoRoll:(UIImage*)imageToSave;
-+(void)updateFileWithName:(NSString*)nameOfImage andImage:(UIImage*)imageToUpdate andRev:(NSString*)revNum;
++ (void)saveImageToDropbox:(UIImage *)imageToSave withImageName:(NSString *)nameOfImage;
++ (void)saveimageToDropbox:(NSString *)imagePath withName:(NSString *)name;
++ (void)saveImageToPhotoRoll:(UIImage *)imageToSave;
++ (void)updateFileWithName:(NSString *)nameOfImage andImage:(UIImage *)imageToUpdate andRev:(NSString *)revNum;
 
 @end

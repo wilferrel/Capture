@@ -10,7 +10,8 @@
 
 @implementation PhotosCollectionViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     // Initialization code
 }
 

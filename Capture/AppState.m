@@ -19,7 +19,7 @@
 }
 - (id)init {
     if (self = [super init]) {
-        _authenticated=NO;
+        self.authenticated=NO;
     }
     return self;
 }
